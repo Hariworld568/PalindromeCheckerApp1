@@ -66,6 +66,20 @@ public class PalindromeCheckerApp {
         return true;
     }
 
+    // UC9: Recursive Palindrome Checker
+    public static boolean isPalindromeRecursive(String str, int start, int end) {
+
+        if (start >= end) {
+            return true;
+        }
+
+        if (str.charAt(start) != str.charAt(end)) {
+            return false;
+        }
+
+        return isPalindromeRecursive(str, start + 1, end - 1);
+    }
+
     public static void main(String[] args) {
 
         // UC1: Welcome Message
@@ -208,6 +222,17 @@ public class PalindromeCheckerApp {
             System.out.println(llInput + " is a Palindrome");
         } else {
             System.out.println(llInput + " is Not a Palindrome");
+        }
+
+        // UC9: Recursive Palindrome Checker
+
+        System.out.print("Enter string for Recursive Palindrome Check: ");
+        String recInput = scanner.nextLine();
+
+        if (isPalindromeRecursive(recInput, 0, recInput.length() - 1)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
         }
 
         scanner.close();
