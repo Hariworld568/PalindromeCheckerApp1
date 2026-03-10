@@ -111,6 +111,31 @@ public class PalindromeCheckerApp {
             System.out.println("UC6: Not Palindrome");
         }
 
+        // UC7: Deque-Based Optimized Palindrome Checker
+        System.out.print("\nEnter a string for UC7: ");
+        String str7 = scanner.nextLine();
+
+        Deque<Character> deque = new ArrayDeque<>();
+
+        for(char c : str7.toCharArray()){
+            deque.add(c);
+        }
+
+        boolean isPalindrome7 = true;
+
+        while(deque.size() > 1){
+            if(deque.removeFirst() != deque.removeLast()){
+                isPalindrome7 = false;
+                break;
+            }
+        }
+
+        if(isPalindrome7){
+            System.out.println("UC7: Palindrome");
+        } else {
+            System.out.println("UC7: Not Palindrome");
+        }
+
         scanner.close();
     }
 }
