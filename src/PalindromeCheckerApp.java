@@ -259,5 +259,14 @@ public class PalindromeCheckerApp {
         System.out.println(checker.checkPalindrome("madam"));
 
         scanner.close();
+
+        //UC12
+        PalindromeStrategy strategy = new StackStrategy();
+
+        if(strategy.check("madam")){
+            System.out.println("Palindrome using Strategy Pattern");
+        }else{
+            System.out.println("Not Palindrome");
+        }
     }
 }
