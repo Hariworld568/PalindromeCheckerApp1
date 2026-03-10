@@ -84,6 +84,33 @@ public class PalindromeCheckerApp {
             System.out.println("UC5: Not Palindrome");
         }
 
+        // UC6: Queue + Stack Based Palindrome Check
+        System.out.print("\nEnter a string for UC6: ");
+        String str6 = scanner.nextLine();
+
+        Queue<Character> queue = new LinkedList<>();
+        Stack<Character> stack6 = new Stack<>();
+
+        for(char c : str6.toCharArray()){
+            queue.add(c);
+            stack6.push(c);
+        }
+
+        boolean isPalindrome6 = true;
+
+        while(!queue.isEmpty()){
+            if(queue.remove() != stack6.pop()){
+                isPalindrome6 = false;
+                break;
+            }
+        }
+
+        if(isPalindrome6){
+            System.out.println("UC6: Palindrome");
+        } else {
+            System.out.println("UC6: Not Palindrome");
+        }
+
         scanner.close();
     }
 }
