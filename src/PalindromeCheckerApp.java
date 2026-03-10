@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class PalindromeCheckerApp {
 
@@ -16,16 +16,16 @@ public class PalindromeCheckerApp {
         }
 
         if(word.equals(reverse)){
-            System.out.println(word + " is a Palindrome");
+            System.out.println("UC2: " + word + " is a Palindrome");
         } else {
-            System.out.println(word + " is Not a Palindrome");
+            System.out.println("UC2: " + word + " is Not a Palindrome");
         }
 
-        // UC3: Palindrome Check Using String Reverse (User Input)
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = scanner.nextLine();
 
+        // UC3: Palindrome Check Using String Reverse
+        System.out.print("\nEnter a string for UC3: ");
+        String input = scanner.nextLine();
         String reversed = "";
 
         for(int i = input.length() - 1; i >= 0; i--){
@@ -33,11 +33,34 @@ public class PalindromeCheckerApp {
         }
 
         if(input.equals(reversed)){
-            System.out.println(input + " is a Palindrome");
+            System.out.println("UC3: Palindrome");
         } else {
-            System.out.println(input + " is Not a Palindrome");
+            System.out.println("UC3: Not Palindrome");
         }
 
+        // UC4: Character Array Based Palindrome Check
+        System.out.print("\nEnter a string for UC4: ");
+        String str4 = scanner.nextLine();
+        char[] arr = str4.toCharArray();
+
+        int left = 0;
+        int right = arr.length - 1;
+        boolean isPalindrome4 = true;
+
+        while(left < right){
+            if(arr[left] != arr[right]){
+                isPalindrome4 = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        if(isPalindrome4){
+            System.out.println("UC4: Palindrome");
+        } else {
+            System.out.println("UC4: Not Palindrome");
+        }
         scanner.close();
     }
 }
