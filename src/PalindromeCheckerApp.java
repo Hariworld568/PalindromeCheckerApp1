@@ -61,6 +61,29 @@ public class PalindromeCheckerApp {
         } else {
             System.out.println("UC4: Not Palindrome");
         }
+
+        // UC5: Stack-Based Palindrome Checker
+        System.out.print("\nEnter a string for UC5: ");
+        String str5 = scanner.nextLine();
+
+        Stack<Character> stack = new Stack<>();
+
+        for(char c : str5.toCharArray()){
+            stack.push(c);
+        }
+
+        String revStack = "";
+
+        while(!stack.isEmpty()){
+            revStack = revStack + stack.pop();
+        }
+
+        if(str5.equals(revStack)){
+            System.out.println("UC5: Palindrome");
+        } else {
+            System.out.println("UC5: Not Palindrome");
+        }
+
         scanner.close();
     }
 }
