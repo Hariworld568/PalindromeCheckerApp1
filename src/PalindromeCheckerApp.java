@@ -254,6 +254,10 @@ public class PalindromeCheckerApp {
             System.out.println("Not Palindrome");
         }
 
+        // UC11 (Object Oriented Palindrome Service)
+        PalindromeChecker checker = new PalindromeChecker();
+        System.out.println(checker.checkPalindrome("madam"));
+
         scanner.close();
     }
 }
