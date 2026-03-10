@@ -1,6 +1,70 @@
 import java.util.*;
 
 public class PalindromeCheckerApp {
+    // Node class for Linked List
+    static class Node {
+        char data;
+        Node next;
+
+        Node(char data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // Method to check palindrome using Linked List
+    public static boolean isPalindromeLinkedList(String input) {
+
+        Node head = null;
+        Node tail = null;
+
+        // Convert string to linked list
+        for (char c : input.toCharArray()) {
+            Node newNode = new Node(c);
+
+            if (head == null) {
+                head = newNode;
+                tail = newNode;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
+        }
+
+        // Find middle
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse second half
+        Node prev = null;
+        Node current = slow;
+
+        while (current != null) {
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        // Compare both halves
+        Node first = head;
+        Node second = prev;
+
+        while (second != null) {
+            if (first.data != second.data) {
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        return true;
+    }
 
     public static void main(String[] args) {
 
@@ -134,6 +198,16 @@ public class PalindromeCheckerApp {
             System.out.println("UC7: Palindrome");
         } else {
             System.out.println("UC7: Not Palindrome");
+        }
+
+        // UC8: Linked List Palindrome Check
+        System.out.print("Enter string for Linked List Palindrome Check: ");
+        String llInput = scanner.nextLine();
+
+        if (isPalindromeLinkedList(llInput)) {
+            System.out.println(llInput + " is a Palindrome");
+        } else {
+            System.out.println(llInput + " is Not a Palindrome");
         }
 
         scanner.close();
